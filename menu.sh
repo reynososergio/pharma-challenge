@@ -9,7 +9,8 @@ while true; do
   echo "2 - Stop project (docker compose down)"
   echo "3 - Stop and remove the project (docker compose down -v)"
   echo "4 - Check running containers (docker ps)"
-  echo "9 - Exit"
+  echo "5 - Run frontend unit tests (npm run test -- --verbose in frontend/)"
+  echo "6 - Exit"
   echo "=============================="
   
   read -p "Enter your choice: " choice
@@ -31,6 +32,10 @@ while true; do
     4)
       echo "Checking running containers..."
       docker ps
+      ;;
+    5)
+      echo "Running frontend unit tests..."
+      (cd frontend && npm run test -- --verbose)
       ;;
     *)
       echo "Invalid option. Please select a valid option."
